@@ -1,21 +1,11 @@
 # Jobber
 
-**TODO: Add description**
+Let's practice GenServer with Supervisor.
 
-## Installation
+## WIL
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `jobber` to your list of dependencies in `mix.exs`:
+### GenServer restarts
 
-```elixir
-def deps do
-  [
-    {:jobber, "~> 0.1.0"}
-  ]
-end
-```
+When we declare `use GenServer` it's automatically set to option `restart: :permanent` - which will automatically restart when process has stopped.
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/jobber>.
-
+If you don't want to restart it, explicitly set to `use GenServer, restart: :transient`.

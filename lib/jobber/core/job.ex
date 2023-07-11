@@ -1,5 +1,5 @@
 defmodule Jobber.Core.Job do
-  use GenServer
+  use GenServer, restart: :transient
   require Logger
 
   defstruct [:work, :id, :max_retries, retries: 0, status: "new"]
