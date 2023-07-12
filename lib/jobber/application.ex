@@ -12,6 +12,8 @@ defmodule Jobber.Application do
     ]
 
     children = [
+      # enforce all registry keys to be unique
+      {Registry, keys: :unique, name: Jobber.JobRegistry},
       {DynamicSupervisor, job_runner_config}
     ]
 
