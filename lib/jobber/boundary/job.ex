@@ -1,4 +1,4 @@
-defmodule Jobber.Core.Job do
+defmodule Jobber.Boundary.Job do
   use GenServer, restart: :transient
   require Logger
 
