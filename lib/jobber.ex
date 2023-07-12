@@ -6,7 +6,12 @@ defmodule Jobber do
   alias Jobber.JobRunner
 
   def start_job(args) do
-    DynamicSupervisor.start_child(JobRunner, {JobSupervisor, args})
+    # Do not run more than 5 import-type processes
+    if Enum.count(running_imports()) >= 5 do
+      {:error, :import_quota_reached}
+    else
+      DynamicSupervisor.start_child(JobRunner, {JobSupervisor, args})
+    end
   end
 
   def running_imports() do
